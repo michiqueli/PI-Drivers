@@ -1,0 +1,14 @@
+.container{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 40% 40% 20%;
+    gap: 20px;
+    background-repeat:no-repeat;
+    margin: 20px;
+    justify-items: stretch;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.pagination{
+    grid-column: 5/5;
+}
