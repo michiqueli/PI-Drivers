@@ -1,8 +1,8 @@
 .container{
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 18% 18% auto 18% 18%;
     grid-template-rows: 40% 40% 20%;
-    gap: 20px;
+    gap: 15px;
     background-repeat:no-repeat;
     margin: 20px;
     justify-items: stretch;
