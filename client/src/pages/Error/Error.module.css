@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../../assets/Error2.gif);
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 99,5vw;
+    height: 98vh;
+    border-radius: 40px;
+}
+.leyenda{
+    font-size: 70px;
+    color: red;
+    font-family: "Formula1 Display-Regular";
+}

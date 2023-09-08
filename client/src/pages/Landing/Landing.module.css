@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    background-image: url(../../assets/Landing.gif);
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 99,5vw;
+    height: 98vh;
+    border-radius: 40px;
+}
+.leyenda{
+    font-size: 70px;
+    color: red;
+    font-family: "Formula1 Display-Regular";
+}
+.pie{
+    font-size: 20px;
+    color: red;
+    font-family: "Formula1 Display-Regular";
+}
+.btnContainer{
+    position: absolute;
+    top: 30%;
+}
+.homeBtn{
+    font-size: 25px;
+    font-family: "Formula1 Display-Regular";
+    justify-self: end;
+    color: red;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
