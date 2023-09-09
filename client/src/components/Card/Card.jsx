@@ -8,7 +8,7 @@ export default function Card({name, lastName, image, id, teams}) {
       <div className={style.container} style={{ backgroundImage: `url(${image}`}}>
          <Link to = {`/detail/${id}`}>
             <div className={style.name}>{name} {lastName}</div>
-            <div className={style.teams}>{teams}</div>
+            <div className={style.teams}>Teams: {teams}</div>
          </Link>
       </div>
    );

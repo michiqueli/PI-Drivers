@@ -1,7 +1,5 @@
 const axios = require("axios")
-
 const getDriverById = (req, res) => {
-
     const id = req.params.idDriver
     axios
         .get(`http://localhost:5000/drivers/${id}`)
@@ -28,6 +26,4 @@ const getDriverById = (req, res) => {
             }
         });
 };
-
-
 module.exports = getDriverById

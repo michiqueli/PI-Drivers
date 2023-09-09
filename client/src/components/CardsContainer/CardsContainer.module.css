@@ -1,10 +1,10 @@
 .container{
     display: grid;
-    grid-template-columns: 18% 18% auto 18% 18%;
-    grid-template-rows: 40% 40% 20%;
-    gap: 15px;
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    grid-template-rows: 40% 40% auto;
+    gap:10px;
     background-repeat:no-repeat;
-    margin: 20px;
+    margin: 10px;
     justify-items: stretch;
     align-content: space-between;
     justify-content: space-between;
