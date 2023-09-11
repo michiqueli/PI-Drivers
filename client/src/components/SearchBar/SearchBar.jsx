@@ -2,16 +2,16 @@ import style from "./SearchBar.module.css"
 import {useState} from 'react';
 
 export default function SearchBar({onSearch}) {
-   const [id, setId] = useState("")
+   const [name, setName] = useState("")
    const handleChange = (e) => {
       let {value} = e.target
-      setId(value);
+      setName(value);
    }
 
    return (
       <div className={style.container}>
-         <input className={style.in} type='search' onChange={handleChange} value={id}></input>
-         <button className={style.btn} onClick={()=>{onSearch(id);setId('')}}>Buscar</button>
+         <input className={style.in} type='search' onChange={handleChange} value={name}></input>
+         <button className={style.btn} onClick={()=>{onSearch(name);setName('')}}>Buscar</button>
       </div>
    );
 }
