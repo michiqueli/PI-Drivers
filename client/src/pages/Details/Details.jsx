@@ -26,7 +26,7 @@ export default function Details(){
                <div className={style.title}>{driver.name} {driver.lastname}</div>
                <div className={style.imagen} style={driver.image.url !== ""
                ?{backgroundImage: `url(${driver.image.url})`}
-               :{backgroundImage: 'PI-Drivers-Pruebas/client/src/assets/weLostImg.jpg'}
+               :{backgroundImage: 'url(PI-Drivers-Pruebas/client/src/assets/weLostImg.jpg)'}
                }>  
                </div>
                <div className={style.subtitle}>Nacionality:</div>
