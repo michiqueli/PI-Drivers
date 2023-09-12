@@ -9,7 +9,7 @@ const getDriverById = (req, res) => {
             const driver = {
                 id,
                 name: name.forename,
-                lastname: name.forename,
+                lastname: name.surname,
                 nationality,
                 image,
                 description,

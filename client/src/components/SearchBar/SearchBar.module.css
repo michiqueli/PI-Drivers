@@ -1,0 +1,16 @@
+.container{
+    font-family: "Formula1 Display-Regular";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.in {
+    font-family: "Formula1 Display-Regular";
+}
+.btn{
+    font-family: "Formula1 Display-Regular";
+    height: 30px;
+    width: 120px;
+    font-size: medium;
+    margin: 20px;
+}

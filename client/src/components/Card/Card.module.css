@@ -1,31 +1,39 @@
-.container{
+.container {
+    text-decoration: none;
     background-repeat: no-repeat;
-    background-size:cover;
-    width: 270px;
-    height: 400px;
+    background-size: cover;
+    width: 250px;
+    height: 350px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     align-items: self-end;
-    border-radius: 10px;
-    
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    filter: grayscale(100%);
 }
-.name{
-    font-family:"Formula1 Display-Regular";
+
+.container:hover {
+    filter: none;
+    transition: all 1s ease;
+}
+
+.name {
+    font-family: "Formula1 Display-Regular";
     background-color: black;
     color: rgb(255, 0, 0);
-    font-size:25px;
-    text-decoration: none;
-    width: 270px;
+    font-size: 25px;
+    width: 250px;
     margin-bottom: 10px;
+    text-decoration-color: black;
 }
-.teams{
-    font-family:"Formula1 Display-Regular";
+
+.teams {
+    font-family: "Formula1 Display-Regular";
     background-color: rgb(255, 0, 0);
     color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-size:15px;
-    width:270px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    
+    font-size: 15px;
+    width: 250px;
+    text-align: center;
+    border-bottom-right-radius: 20px;
+    overflow-wrap:break-word;
 }
