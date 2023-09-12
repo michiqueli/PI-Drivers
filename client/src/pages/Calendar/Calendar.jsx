@@ -1,6 +1,8 @@
+import style from './calendar.module.css'
 const Calendar = () => {
     return (
-      <div>"Este es el Calendar 2023"</div>
+      <div className= {style.container}>
+      </div>
     )
   }
   

@@ -1,0 +1,24 @@
+.container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 80%
+}
+.drivers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.teams{
+    display: flex;
+    flex-direction: column;
+    size: 98%;
+    align-items: center;
+}
+.imagedrv{
+    background-image: url(./TopDrivers.jpg);
+    background-size:contain;
+}
+.imageteams{
+    background-image: url(./TopTEams.jpg);
+}

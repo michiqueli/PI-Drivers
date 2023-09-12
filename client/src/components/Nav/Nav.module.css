@@ -5,35 +5,28 @@
     max-height: 96Vh;
 }
 .accesos{
+    font-family: "Formula1 Display-Regular";
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
-}
-.accbtn{
-    font-family: "Formula1 Display-Regular";
-    height: 30px;
-    width: 120px;
-    font-size: medium;
-    margin: 20px;
 }
 .order{
+    font-family: "Formula1 Display-Regular";
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
 }
-.ordBtn{
-    font-family: "Formula1 Display-Regular";
-    height: 30px;
-    width: 120px;
-    font-size: medium;
-    margin: 20px;
-}
 .filters{
+    font-family: "Formula1 Display-Regular";
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.filBtn{
+.btn{
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+    color: red;
     font-family: "Formula1 Display-Regular";
     height: 30px;
     width: 120px;
