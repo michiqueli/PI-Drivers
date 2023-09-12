@@ -1,7 +1,10 @@
 .container{
     display: grid;
+    height: 90vh;
+    width: 98vw;
+    margin: 30px;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 20% 80%
+    grid-row: auto;
 }
 .drivers{
     display: flex;
@@ -12,13 +15,16 @@
 .teams{
     display: flex;
     flex-direction: column;
-    size: 98%;
     align-items: center;
 }
 .imagedrv{
     background-image: url(./TopDrivers.jpg);
-    background-size:contain;
+    background-size: auto;
+    
 }
 .imageteams{
     background-image: url(./TopTEams.jpg);
+}
+.titulo{
+    font-family: "Formula1 Display-Regular"; 
 }
