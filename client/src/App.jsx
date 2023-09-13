@@ -10,6 +10,7 @@ import Calendar from './pages/Calendar/Calendar'
 import {Route, Routes} from 'react-router-dom'
 import {useState} from 'react';
 import axios from 'axios';
+import Nav from './components/Nav/Nav'
 
 
 function App() {
