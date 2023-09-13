@@ -3,7 +3,7 @@ import style from "./Nav.module.css"
 import { Link } from "react-router-dom"
 
 
-export default function Nav (onSearch){
+export default function Nav (){
     
     return (
         <div className={style.navBar}>
@@ -22,7 +22,7 @@ export default function Nav (onSearch){
                 <button className={style.btn} >From DB</button>
             </div>
             <div className={style.order}>SORTERS
-            <select className={style.btn} >
+            <select className={style.btn} onChange={handleOrder}>
                     <option value="nameA">For Name Asc</option>
                     <option value="nameD">For Name Desc</option>
             </select>

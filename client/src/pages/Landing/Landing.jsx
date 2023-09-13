@@ -6,6 +6,17 @@ import { setDrivers} from '../../redux/sliceDrivers'
 import axios from "axios"
 
 const Landing = () => {
+  
+  const dispatch = useDispatch()
+  useEffect(() => {
+    axios.get('http://localhost:3001/drivers')
+      .then(response => {
+        dispatch(setDrivers(response.data));
+      })
+      .catch(error => {
+        throw new Error (error)
+      });
+  }, [dispatch]);
 
   return (
     <div className={style.container}>

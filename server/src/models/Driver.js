@@ -9,23 +9,23 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    Nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Apellido: {
+    lastname: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Description: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Image: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Nationality: {
+    nationality: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -34,15 +34,4 @@ module.exports = (sequelize) => {
       allowNull: false,
     }
   })
-  sequelize.define('Teams',{
-    ID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      prumaryKey: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    }
-  });
 };
