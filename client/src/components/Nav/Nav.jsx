@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 
 
 export default function Nav (onSearch){
+    
     return (
         <div className={style.navBar}>
             <div className={style.accesos}>

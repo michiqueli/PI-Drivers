@@ -7,7 +7,7 @@ const initialState = {
     drivers: [],
 }
 export const driversHandler = createSlice({
-name: drivers,
+name: "drivers",
 initialState,
 reducers: {
     setDrivers:(state, action) => {

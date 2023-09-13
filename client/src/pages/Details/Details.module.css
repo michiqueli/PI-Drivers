@@ -1,6 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: 50% 50%;
+    
 }
 
 .title{
@@ -35,7 +36,6 @@
     font-family:"Formula1 Display-Regular";
     color:rgb(0, 0, 0);
 }
-
 .imagen{
     grid-column: 2 / 3;
     grid-row: 2 / 10;
@@ -48,4 +48,17 @@
     border-top-left-radius: 30px;
     border-bottom-right-radius: 30px;
     background-size: cover;
+}
+.btn{
+    grid-column: 2 / 3;
+    grid-row: 10 / 11;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: red;
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    height:60px;
+    width: 120px;
+    font-size: medium;
+    margin: 20px;
 }

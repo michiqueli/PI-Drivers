@@ -11,6 +11,8 @@ import {Route, Routes} from 'react-router-dom'
 import {useState} from 'react';
 import axios from 'axios';
 import Nav from './components/Nav/Nav'
+import { Provider } from 'react-redux'
+import { store } from '../src/redux/store'
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
     }
 
   return (
+   <Provider store={store}>
   <div className='App'>
       <Routes>
         <Route path='/' element={<Landing getAllDrivers={getAllDrivers} />}/>
@@ -48,6 +51,7 @@ function App() {
         <Route path='/details/:id' element={<Details/>}/>
       </Routes>
    </div>
+   </Provider>
   )
  }
 

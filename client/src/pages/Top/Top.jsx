@@ -7,7 +7,7 @@ const Top = () => {
         <div className= {style.titulo}>TOP TEN CHAMPIONS TEAMS</div>
         <div className= {style.imagedrv}></div>
         <div className= {style.imageteams}></div>
-        <Link to ='../Home'><button className={style.btn}>Home</button></Link>
+        <Link to ='../Home'><button className={style.btn}>BACK HOME</button></Link>
         </div>
         
     )

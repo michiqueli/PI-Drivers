@@ -2,7 +2,7 @@ import style from "./Details.module.css"
 import axios from "axios"
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import {Link} from 'react-router-dom'
 
 export default function Details(){
     const {id} = useParams()
@@ -18,11 +18,14 @@ export default function Details(){
     });
     return setDriver({});
     }, [id]);
-
+    const backHome = ()=>{
+      window.location.href = '/Home';
+   }
    return(
          <div>{
             driver.name &&  
             <div className = {style.container}>
+               <button className={style.btn} onClick={backHome}>BACK HOME</button>
                <div className={style.title}>{driver.name} {driver.lastname}</div>
                <div className={style.imagen} style={driver.image.url !== ""
                ?{backgroundImage: `url(${driver.image.url})`}

@@ -5,7 +5,7 @@
     margin: 20px;
     padding: 20px;
     grid-template-columns: 45% 45%;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 10% 80% 10%;
     padding: 20px;
     justify-content: space-between;
     background-color: black;
@@ -38,10 +38,10 @@
 .btn{
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: black;
-    color: red;
+    background-color: red;
+    color:black;
     font-family: "Formula1 Display-Regular";
-    height: 30px;
+    height:60px;
     width: 120px;
     font-size: medium;
     margin: 20px;
