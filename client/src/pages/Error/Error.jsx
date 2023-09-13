@@ -1,19 +1,16 @@
-import {useDispatch} from 'react-redux'
-import { setDrivers } from '../../redux/sliceDrivers'
-import { Link } from 'react-router-dom'
 import style from "./Error.module.css"
+import { Link } from "react-router-dom"
 const Error = () => {
-    return (
+  return (
       <div className={style.container}>
         <p className={style.leyenda}>
           404
         </p>
-        <Link to ='../Home'><button className={style.btn}>BACK HOME</button></Link>
+        <Link to ='../Home'><button className={style.btn}>Back to Home</button></Link>
         <p className={style.leyenda}>
           PAGE NOT FOUND
         </p>
       </div>
     )
   }
-  
-  export default Error
+export default Error

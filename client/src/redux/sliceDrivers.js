@@ -3,41 +3,56 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialState = {
     filterDriversByOrigin: [],
     filterDriversByTeams: [],
-    filterDrivers: [],
+    searchedDrivers: [],
     drivers: [],
+    sortedDriverByName: [],
+    sortedDriverByDob: [],
 }
 export const driversHandler = createSlice({
-name: "drivers",
+name: "driversState",
 initialState,
 reducers: {
     setDrivers:(state, action) => {
         state.drivers = action.payload;
     },
-    setFilterDrivers: (state, action) => {
-        state.filterDrivers = action.payload;
+    setSearchedDrivers: (state, action) => {
+        state.searchedDrivers = action.payload;
     },
-    setfilterDriversByOrigin: (state, action) => {
+    setFilterDriversByOrigin: (state, action) => {
         state.filterDriversByOrigin = action.payload
     },
-    setfilterDriversByTeams: (state, action) => {
+    setFilterDriversByTeams: (state, action) => {
         state.filterDriversByTeams = action.payload
     },
-},
-
+    setSortedDriverByName:(state, action) => {
+        state.sortedDriverByName = action.payload
+    },
+    setSortedDriverByDob:(state, action) => {
+        state.sortedDriverByDob = action.payload
+    },
+}
 });
 
-export const getDrivers = (state) => state.drivers.drivers
-export const getFilterDrivers = (state) => state.drivers.filterDrivers
+export const getDrivers = (state) => 
+    state.drivers.drivers;
+export const getSeaarchedDrivers = (state) => 
+    state.drivers.searchedDrivers;
 export const getFilterDriversByOrigin = (state) => 
-    drivers.drivers.filerDriversByOrigin
+    state.drivers.filterDriversByOrigin;
 export const getFilterDriversByTeams = (state) => 
-    drivers.drivers.filterDriversByTeams
+    state.drivers.filterDriversByTeams;
+export const getSortedDriverByName = (state) =>
+    state.drivers.sortedDriverByName;
+export const getSortedDriverByDob = (state) => 
+    state.drivers.sortedDriverByDob;
 
 export const {
     setDrivers,
-    setFilterDrivers,
-    setfilterDriversByOrigin,
-    setfilterDriversByTeams
+    setSearchedDrivers,
+    setFilterDriversByOrigin,
+    setFilterDriversByTeams,
+    setSortedDriverByName,
+    setSortedDriverByDob
 } = driversHandler.actions;
 
 export default driversHandler.reducer;

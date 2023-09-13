@@ -1,7 +1,12 @@
 import style from "./Landing.module.css"
 import { Link } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { setDrivers} from '../../redux/sliceDrivers'
+import axios from "axios"
 
-const Landing = (getAllDrivers) => {
+const Landing = () => {
+
   return (
     <div className={style.container}>
         <p className={style.leyenda}>
@@ -9,7 +14,7 @@ const Landing = (getAllDrivers) => {
         </p>
         <p className={style.btnContainer}>
           <Link to ='./Home'>
-          <button className={style.homeBtn}onClick={()=>getAllDrivers}> Lets Go To Race</button>
+          <button className={style.homeBtn}> Lets Go To Race</button>
           </Link>
         </p>
         <p className={style.pie}>

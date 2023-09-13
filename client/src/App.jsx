@@ -8,22 +8,14 @@ import About from './pages/About/About'
 import Calendar from './pages/Calendar/Calendar'
 
 import {Route, Routes} from 'react-router-dom'
-import {useState} from 'react';
 import axios from 'axios';
-import Nav from './components/Nav/Nav'
 import { Provider } from 'react-redux'
 import { store } from '../src/redux/store'
 
 
+
 function App() {
-   const [drivers, setDrivers] = useState([]);
    
-   const getAllDrivers = () => {
-      axios(`http://localhost:3001/drivers`)
-      .then((response) => {
-         setDrivers(response.data)
-      })
-   }
    const onSearch = (name) =>{
        axios(`http://localhost:3001/drivers/${name}`)
        .then(({ data }) => {
@@ -39,12 +31,9 @@ function App() {
    <Provider store={store}>
   <div className='App'>
       <Routes>
-        <Route path='/' element={<Landing getAllDrivers={getAllDrivers} />}/>
+        <Route path='/' element={<Landing/>}/>
         <Route path='*' element={<Error/>}/>
-        <Route path='/home' element=
-                           {<Home drivers={drivers}
-                           onSearch={onSearch}/>}
-         />
+        <Route path='/home' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/top' element={<Top/>}/>
         <Route path='/calendar' element={<Calendar/>}/>

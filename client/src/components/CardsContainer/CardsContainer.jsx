@@ -1,24 +1,14 @@
+import { getDrivers } from "../../redux/sliceDrivers";
 import Card from "../Card/Card"
 import style from './CardsContainer.module.css'
-import axios from "axios"
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function CardsContainer() {
-      
-  const [drivers, setDrivers] = useState([]);
+
+  const drivers = useSelector(getDrivers);
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/drivers')
-      .then((response) => {
-        setDrivers(response.data);
-      })
-      .catch((error) => {
-        console.error('Error al obtener los datos:', error);
-      });
-  }, []);
-
   const totalPages = Math.ceil(drivers.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
