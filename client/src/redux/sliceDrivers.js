@@ -1,12 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
-    filterDriversByOrigin: [],
-    filterDriversByTeams: [],
-    searchedDrivers: [],
+    modDrivers: [],
     drivers: [],
-    sortedDriverByName: [],
-    sortedDriverByDob: [],
 }
 export const driversHandler = createSlice({
 name: "driversState",
@@ -15,44 +11,21 @@ reducers: {
     setDrivers:(state, action) => {
         state.drivers = action.payload;
     },
-    setSearchedDrivers: (state, action) => {
-        state.searchedDrivers = action.payload;
-    },
-    setFilterDriversByOrigin: (state, action) => {
-        state.filterDriversByOrigin = action.payload
-    },
-    setFilterDriversByTeams: (state, action) => {
-        state.filterDriversByTeams = action.payload
-    },
-    setSortedDriverByName:(state, action) => {
-        state.sortedDriverByName = action.payload
-    },
-    setSortedDriverByDob:(state, action) => {
-        state.sortedDriverByDob = action.payload
+    setModDrivers: (state, action) => {
+        state.modDrivers = action.payload;
     },
 }
 });
 
 export const getDrivers = (state) => 
     state.drivers.drivers;
-export const getSeaarchedDrivers = (state) => 
-    state.drivers.searchedDrivers;
-export const getFilterDriversByOrigin = (state) => 
-    state.drivers.filterDriversByOrigin;
-export const getFilterDriversByTeams = (state) => 
-    state.drivers.filterDriversByTeams;
-export const getSortedDriverByName = (state) =>
-    state.drivers.sortedDriverByName;
-export const getSortedDriverByDob = (state) => 
-    state.drivers.sortedDriverByDob;
+export const getModDrivers = (state) => 
+    state.drivers.modDrivers;
 
 export const {
     setDrivers,
-    setSearchedDrivers,
-    setFilterDriversByOrigin,
-    setFilterDriversByTeams,
-    setSortedDriverByName,
-    setSortedDriverByDob
+    setModDrivers,
+    
 } = driversHandler.actions;
 
 export default driversHandler.reducer;

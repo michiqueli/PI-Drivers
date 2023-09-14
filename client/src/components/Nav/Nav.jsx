@@ -9,12 +9,11 @@ export default function Nav (){
         <div className={style.navBar}>
             <div className={style.accesos}>PAGES
                 <Link to ='../About'><button className={style.btn} >About</button></Link>
-                <Link to ='../Home'><button className={style.btn}>Home</button></Link>
                 <Link to ='../Top'><button className={style.btn}>Top Ten</button></Link>
                 <Link to ='../Calendar'><button className={style.btn}>Calendario</button></Link>
             </div>
             <div className={style.search}>Search By Name
-                <SearchBar onSearch = {onSearch}></SearchBar>
+                <SearchBar></SearchBar>
             </div>
             <div className={style.filters}>FILTERS
                 <button className={style.btn} >For Team</button>
@@ -22,7 +21,7 @@ export default function Nav (){
                 <button className={style.btn} >From DB</button>
             </div>
             <div className={style.order}>SORTERS
-            <select className={style.btn} onChange={handleOrder}>
+            <select className={style.btn}>
                     <option value="nameA">For Name Asc</option>
                     <option value="nameD">For Name Desc</option>
             </select>

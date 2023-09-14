@@ -6,10 +6,9 @@ import Details from './pages/Details/Details.jsx'
 import Top from './pages/Top/Top'
 import About from './pages/About/About'
 import Calendar from './pages/Calendar/Calendar'
-import Results from './pages/Results/Results'
 
 import {Route, Routes} from 'react-router-dom'
-import axios from 'axios';
+
 import { Provider } from 'react-redux'
 import { store } from '../src/redux/store'
 
@@ -29,7 +28,6 @@ return (
         <Route path='/top' element={<Top/>}/>
         <Route path='/calendar' element={<Calendar/>}/>
         <Route path='/details/:id' element={<Details/>}/>
-        <Route path='/results' element={<Results/>}/>
       </Routes>
    </div>
    </Provider>

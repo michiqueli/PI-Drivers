@@ -1,4 +1,4 @@
-import { getDrivers } from "../../redux/sliceDrivers";
+import { getModDrivers } from "../../redux/sliceDrivers";
 import Card from "../Card/Card"
 import style from './CardsContainer.module.css'
 import { useState } from "react";
@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 
 export default function CardsContainer() {
 
-  const drivers = useSelector(getDrivers);
+  const modDrivers = useSelector(getModDrivers);
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(drivers.length / itemsPerPage);
+  const totalPages = Math.ceil(modDrivers.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const displayedDrivers = drivers.slice(startIndex, endIndex);
+  const displayedDrivers = modDrivers.slice(startIndex, endIndex);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);

@@ -2,7 +2,7 @@ import style from "./Landing.module.css"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
-import { setDrivers} from '../../redux/sliceDrivers'
+import { setDrivers, setModDrivers } from '../../redux/sliceDrivers'
 import axios from "axios"
 
 const Landing = () => {
@@ -12,6 +12,15 @@ const Landing = () => {
     axios.get('http://localhost:3001/drivers')
       .then(response => {
         dispatch(setDrivers(response.data));
+      })
+      .catch(error => {
+        throw new Error (error)
+      });
+  }, [dispatch]);
+  useEffect(() => {
+    axios.get('http://localhost:3001/drivers')
+      .then(response => {
+        dispatch(setModDrivers(response.data));
       })
       .catch(error => {
         throw new Error (error)
