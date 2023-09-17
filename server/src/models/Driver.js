@@ -1,11 +1,9 @@
 const { DataTypes } = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize) => {
   sequelize.define('Driver', {
     id: {
-      type: DataTypes.UUID,
-      defaultValue:uuidv4(),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
@@ -30,7 +28,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     dob: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,
       allowNull: false,
     }
   })

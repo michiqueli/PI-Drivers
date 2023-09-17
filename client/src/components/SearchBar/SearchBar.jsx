@@ -14,7 +14,7 @@ export default function SearchBar() {
    }
    const onSearch = () => {
       axios
-        .get(`http://localhost:5000/drivers?name.forename=${name}`)
+        .get(`http://localhost:3001/drivers/?name=${name}`)
         .then((response) => {
          if(response.data.length > 0){
           dispatch(setModDrivers(response.data));
