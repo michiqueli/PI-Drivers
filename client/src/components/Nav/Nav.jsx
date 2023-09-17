@@ -8,9 +8,9 @@ export default function Nav (){
     return (
         <div className={style.navBar}>
             <div className={style.accesos}>PAGES
-                <Link to ='../About'><button className={style.btn} >About</button></Link>
                 <Link to ='../Top'><button className={style.btn}>Top Ten</button></Link>
                 <Link to ='../Calendar'><button className={style.btn}>Calendario</button></Link>
+                <Link to ='../Form'><button className={style.formbtn} >Crear Piloto</button></Link>
             </div>
             <div className={style.search}>Search By Name
                 <SearchBar></SearchBar>

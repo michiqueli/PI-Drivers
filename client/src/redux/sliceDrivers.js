@@ -25,7 +25,7 @@ export const getModDrivers = (state) =>
 export const {
     setDrivers,
     setModDrivers,
-    
 } = driversHandler.actions;
 
 export default driversHandler.reducer;
+

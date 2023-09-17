@@ -1,0 +1,114 @@
+.formulario{
+    display: flex;
+    justify-content: center;
+    width: 98%;
+    height: 98vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 33% 33% auto;
+    margin-top: 40px;
+    width: 1200px;
+    height: 700px;
+    justify-self: center;
+    align-self: center;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-color: black;
+    border-style: solid;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-size: large;
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+}
+.desc{
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-size: large;
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+}
+.login{
+    grid-column: 1/4;
+    width: max-content;
+    height: max-content;
+    align-self: center;
+    justify-self: center;
+}
+.btn{
+    
+    background-color: red;
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    height: 60px;
+    width: 300px;
+    font-size: large;
+    margin: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.title{
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    font-size: xx-large;
+}
+.box{
+    width: 300px;
+    height: 40px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+.descbox{
+    width: 550px;
+    height: 280px;
+    font-family: "Formula1 Display-Regular";
+    font-size:large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: justify;
+   resize: none;
+}
+.selectbox{
+    width: 300px;
+    height: 40px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+.homebtn{
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: red;
+    color: black;
+    font-family: "Formula1 Display-Regular";
+    height: 60px;
+    width: 120px;
+    font-size: medium;
+    margin: 20px;
+    align-self: end;
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { setDrivers, setModDrivers } from '../../redux/sliceDrivers'
+import { setTeams } from '../../redux/sliceTeams'
 import axios from "axios"
 
 const Landing = () => {
@@ -26,6 +27,18 @@ const Landing = () => {
         throw new Error (error)
       });
   }, [dispatch]);
+  useEffect(() => {
+    axios.get('http://localhost:3001/teams')
+      .then(response => {
+        dispatch(setTeams(response.data));
+      })
+      .catch(error => {
+        throw new Error (error)
+      });
+  }, [dispatch]);
+
+
+
 
   return (
     <div className={style.container}>

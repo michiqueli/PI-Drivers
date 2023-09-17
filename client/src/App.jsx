@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home.jsx"
 import Error from "./pages/Error/Error.jsx"
 import Details from './pages/Details/Details.jsx'
 import Top from './pages/Top/Top'
-import About from './pages/About/About'
+import About from './pages/Form/Create'
 import Calendar from './pages/Calendar/Calendar'
 
 import {Route, Routes} from 'react-router-dom'
@@ -24,7 +24,7 @@ return (
         <Route path='/' element={<Landing/>}/>
         <Route path='*' element={<Error/>}/>
         <Route path='/home' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
+        <Route path='/form' element={<About/>}/>
         <Route path='/top' element={<Top/>}/>
         <Route path='/calendar' element={<Calendar/>}/>
         <Route path='/details/:id' element={<Details/>}/>
