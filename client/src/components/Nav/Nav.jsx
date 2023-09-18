@@ -29,9 +29,9 @@ export default function Nav (){
     })
 
     const onChange = () => {
-
-    }
         
+    }
+
     return (
         <div className={style.navBar}>
             <div className={style.accesos}>PAGES

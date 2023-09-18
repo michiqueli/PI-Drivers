@@ -2,6 +2,7 @@ import style from "./Details.module.css"
 import axios from "axios"
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import imageDeafult from "../../assets/weLostImg.jpg"
 
 
 export default function Details(){
@@ -25,9 +26,7 @@ export default function Details(){
             <div className = {style.container}>
                <div className={style.title}>{driver.name} {driver.lastname}</div>
                
-               <div className={style.imagen} style={driver.image.url !== ""
-               ?{backgroundImage: `url(${driver.image.url})`}
-               :{backgroundImage: 'url(PI-Drivers-Pruebas/client/src/assets/weLostImg.jpg)'}
+               <div className={style.imagen} style={{ backgroundImage: `url(${driver.image.url || imageDeafult}`}
                }> <Link to ='../Home'><button className={style.btn}>BACK HOME</button></Link>
                </div>
                <div className={style.subtitle}>Nacionality:</div>
