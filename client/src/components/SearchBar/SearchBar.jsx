@@ -3,6 +3,7 @@ import style from "./SearchBar.module.css"
 import {useState} from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { setModDrivers, getDrivers} from "../../redux/sliceDrivers";
+
 export default function SearchBar() {
    
    const dispatch = useDispatch()
@@ -14,7 +15,7 @@ export default function SearchBar() {
    }
    const onSearch = () => {
       axios
-        .get(`http://localhost:3001/drivers/?name=${name}`)
+        .get(`http://localhost:5000/drivers?name.forename=${name}`)
         .then((response) => {
          if(response.data.length > 0){
           dispatch(setModDrivers(response.data));
