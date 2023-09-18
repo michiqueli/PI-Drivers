@@ -25,8 +25,10 @@ export default function SearchBar() {
     }
     const drivers = useSelector(getDrivers);
     
-    const clearAll = (() => {
-    dispatch(setModDrivers(drivers));
+   const clearAll = (() => {
+   dispatch(
+      setModDrivers(drivers)
+      )
    })
 
    return (

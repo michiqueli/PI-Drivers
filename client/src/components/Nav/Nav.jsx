@@ -1,10 +1,32 @@
+
 import SearchBar from "../SearchBar/SearchBar.jsx"
 import style from "./Nav.module.css"
 import { Link } from "react-router-dom"
+import {getTeams} from "../../redux/sliceTeams.js"
+import { useSelector } from "react-redux"
+import { useEffect } from "react"
 
 
 export default function Nav (){
     
+    const teams = useSelector(getTeams)
+
+    function addOptions(domElement, array) {
+        var select = document.getElementsByName(domElement)[0];
+       
+        for (let value in array) {
+         var option = document.createElement("option");
+         option.text = array[value];
+         select.add(option);
+        }
+       }
+    useEffect(() => {
+        addOptions("teams", teams)
+    })
+    const onChange = () => {
+        
+    }
+
     return (
         <div className={style.navBar}>
             <div className={style.accesos}>PAGES
@@ -16,7 +38,9 @@ export default function Nav (){
                 <SearchBar></SearchBar>
             </div>
             <div className={style.filters}>FILTERS
-                <button className={style.btn} >For Team</button>
+                <select name= "teams" className={style.btn} onChange={onChange} >For Team
+                <option>Filter By Team</option>
+                </select>
                 <button className={style.btn} >From API</button>
                 <button className={style.btn} >From DB</button>
             </div>

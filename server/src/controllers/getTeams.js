@@ -20,8 +20,8 @@ const getTeams =  async (req, res) => {
             });
           }
         });
-    
-        const teamsArray = Array.from(teamsSet);
+        
+        const teamsArray = Array.from(teamsSet).sort();
     
         /*for (const teamName of teamsArray) {
           const existingTeam = await Teams.findOne({ where: { name: teamName } });
