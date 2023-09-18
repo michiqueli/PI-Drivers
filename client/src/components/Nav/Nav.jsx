@@ -2,10 +2,36 @@
 import SearchBar from "../SearchBar/SearchBar.jsx"
 import style from "./Nav.module.css"
 import { Link } from "react-router-dom"
+import { getModDrivers, setModDrivers} from "../../redux/sliceDrivers.js"
+import { getTeams } from "../../redux/sliceTeams.js"
+import { useDispatch, useSelector} from "react-redux"
+import { useEffect } from "react"
+import {sortByNameAsc, sortByNameDes, sortByDobAsc, sortByDobDes} from '../../utilities/sorters.js'
 
 
 export default function Nav (){
     
+    const teams = useSelector(getTeams)
+    const dispatch = useDispatch()
+    const orderedDrivers = useSelector(getModDrivers)
+    
+    function addOptions(domElement, array) {
+        var select = document.getElementsByName(domElement)[0];
+       
+        for (let value in array) {
+            var option = document.createElement("option");
+            option.text = array[value];
+            select.add(option);
+        }
+       }
+    useEffect(() => {
+        addOptions("teams", teams)
+    })
+
+    const onChange = () => {
+
+    }
+        
     return (
         <div className={style.navBar}>
             <div className={style.accesos}>PAGES
@@ -37,7 +63,16 @@ export default function Nav (){
                     <option value="nameA">For Name Asc</option>
                     <option value="nameD">For Name Desc</option>
             </select>
-            <select className={style.btn} onChange={sortByName(event)}>
+            <select className={style.btn} onChange={(event) => {
+                        const selectedValue = event.target.value;
+                        const sortedDrivers = [...orderedDrivers];
+                        if (selectedValue === "dobA") {
+                        sortedDrivers.sort(sortByDobAsc);
+                        } else if (selectedValue === "dobD") {
+                        sortedDrivers.sort(sortByDobDes);
+                        }
+                        dispatch(setModDrivers(sortedDrivers));
+    }}>
                     <option value="dobA">For Date Asc</option>
                     <option value="dobD">For Date Desc</option>
             </select>
