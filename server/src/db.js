@@ -4,7 +4,7 @@ const {DB_USER, DB_PASSWORD, DB_HOST} = process.env
 const DriverFunction = require ('./models/Driver')
 const TeamsFunction = require ('./models/Teams')
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/Drivers`, {
   logging: false, 
   native: false, 
 });
