@@ -2,7 +2,27 @@ import style from './Create.module.css'
 import {useState} from 'react'
 import validate from './validation';
 import { Link } from 'react-router-dom';
-const Form = ({create}) => {
+import {getTeams} from '../../redux/sliceTeams'
+import {useSelector} from 'react-redux'
+import { useEffect } from 'react';
+import axios from 'axios';
+
+const Form = () => {
+
+    const teams = useSelector(getTeams)
+
+    function addOptions(domElement, array) {
+        var select = document.getElementsByName(domElement)[0];
+       
+        for (let value in array) {
+            var option = document.createElement("option");
+            option.text = array[value];
+            select.add(option);
+        }
+       }
+    useEffect(() => {
+        addOptions("selectedTeam", teams)
+    })
 
     const [form, setForm] = useState({
       name: "",
@@ -24,6 +44,21 @@ const Form = ({create}) => {
       teams:"Empty Teams",
     });
 
+    const addTeam = () => {
+        if (form.teams.includes(form.selectedTeam)) {
+            window.alert("Team already exist")
+            return;
+          }
+        if (form.selectedTeam !== "") {
+          const updatedTeams = form.teams !== "" ? `${form.teams}, ${form.selectedTeam}` : form.selectedTeam;
+          setForm({
+            ...form,
+            teams: updatedTeams,
+            selectedTeam: "",
+          });
+        }
+      };
+
     const handleChange = (event) => {
         const property = event.target.name
         const value = event.target.value
@@ -34,9 +69,22 @@ const Form = ({create}) => {
     
     const submitHandler = (event) => {
         event.preventDefault();
-        create(form);
+    
+    const driver = {
+        name: form.name,
+        lastname: form.lastName,
+        nationality: form.nationality,
+        image: form.image,
+        dob: form.dob,
+        teams: form.teams,
+        description: form.description,
+      };
+      axios.post(`http://localhost:3001/drivers`, driver)
+      .then(response => {window.alert('Drivers Create success', response.data)
+      })
+      .catch((error) => window.alert('Error on Create Driver', error.message))
+        
     }
-
     return (
          <div className={style.formulario}>
             <div className={style.title}>TIME</div>
@@ -46,7 +94,7 @@ const Form = ({create}) => {
          <form className={style.container} onSubmit={submitHandler}>
                 <div className={style.name}>
                     <label htmlFor="Name"> Name </label>
-                    <input className= {style.box} input maxlength="16"
+                    <input className= {style.box} maxLength="16"
                     type="text"
                     name="name" 
                     value={form.name}
@@ -59,7 +107,7 @@ const Form = ({create}) => {
                 </div>
                 <div className={style.name}>
                     <label htmlFor="lastName"> Last Name </label>
-                    <input className= {style.box} input maxlength="16"
+                    <input className= {style.box} maxLength="16"
                     type="text"
                     name="lastName"
                     placeholder="Caps in first, min 2 Char"
@@ -72,7 +120,7 @@ const Form = ({create}) => {
                 </div>
                 <div className={style.name}>
                     <label htmlFor="Nationality"> Nationality </label>
-                    <input className= {style.box} input maxlength="16"
+                    <input className= {style.box} maxLength="16"
                     type="text"
                     name="nationality"
                     placeholder="Caps in first, min 3 Char"
@@ -110,23 +158,30 @@ const Form = ({create}) => {
                     </span>
                 </div>
                 <div className={style.name}>
-                    <label htmlFor="teams"> Teams </label>
-                    <select defaultValue='' className= {style.selectbox}>
-                    <option value=''>Select a Team</option>
-                    <option value='Ferrari'>Ferrari</option>
-                    <option value='Mercedes'>Mercedes</option>
-                    <option value='Red Bull'>Red Bull</option>
-                    <option value='Hass'>Hass</option>
-                    <option value='Renault'>Renault</option>
-                    <option value='Williams'>Williams</option>
+                    <label htmlFor="selectedTeam"> Teams </label>
+                    <select
+                    name="selectedTeam"
+                    className={style.selectbox}
+                    value={form.selectedTeam}
+                    onChange={handleChange}
+  >                 <option>Select a Team</option>
                     </select>
-                    <span>
-                    {errors.team}
-                    </span>
+                    <button type="button" onClick={addTeam}>
+                    Add Team
+                    </button>
+                </div>
+                <div className={style.name}>
+                    <label htmlFor="teams"> Selected Teams </label>
+                    <input
+                    type="text"
+                    name="teams"
+                    value={form.teams}
+                    readOnly={true}
+                    />
                 </div>
                 <div className={style.desc}>
                     <label htmlFor="description"> Description </label>
-                    <textarea className= {style.descbox} input maxlength="1000"
+                    <textarea className= {style.descbox}  maxLength="1000"
                     type="text"
                     name="description"
                     placeholder="Insert a Description min 20 Characters, max 1000 Characters"

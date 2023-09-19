@@ -4,14 +4,14 @@ const createDriver = (req, res) => {
     const { body } = req;
 
     try {
-
         const newDriver = Driver.create({
+            id:600,
             name: body.name,
-            lastName: body.lastName,
+            lastname: body.lastname,
             description: body.description,
             image: body.image,
             nationality: body.nationality,
-            birdthDate: body.birdthDate
+            dob: body.dob
         });
 
         res.status(200).json(newDriver);
