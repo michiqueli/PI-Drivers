@@ -9,6 +9,9 @@
     border-top-left-radius: 30px;
     border-bottom-right-radius: 30px;
     padding: 15px;
+    background-image: url(../../assets/NavBar.jpg);
+    background-size: contain;
+    background-repeat:round;
 }
 .search{
     font-family: "Formula1 Display-Regular";

@@ -10,6 +10,9 @@
     max-height: 100%;
     border-top-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    background-image: url(../../assets/f1-formula1.gif);
+    background-size: contain;
+    background-repeat: round;
     
 }
 .pagination{
@@ -19,10 +22,12 @@
     align-items: center;
     font-family: "Formula1 Display-Regular";
     margin-top: 30px;
+    color: red;
 }
 .pagination button{
     font-family: "Formula1 Display-Regular";
     margin-left: 20px;
     margin-right: 20px;
     font-size: large;
+    background-color: red;
 }
