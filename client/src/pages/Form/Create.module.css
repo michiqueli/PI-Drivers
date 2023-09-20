@@ -149,10 +149,11 @@ grid-column: 1/3;
 }
 .selectedteamsbox{
     width: 300px;
-    height: 200px;
+    height: 250px;
     font-family: "Formula1 Display-Regular";
     font-size: large;
     text-align: center;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    resize: none;
 }

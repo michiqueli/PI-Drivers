@@ -98,6 +98,18 @@ const Form = () => {
       .catch((error) => window.alert('Error on Create Driver', error.message))
         
     }
+
+    const removeTeam = (teamName) => {
+      const updatedTeams = form.teams
+        .split('\n')
+        .filter((team) => team !== teamName)
+        .join('\n');
+      setForm({
+        ...form,
+        teams: updatedTeams,
+      });
+    };
+
     return (
          <div className={style.formulario}>
             <div className={style.title}>TIME</div>
@@ -183,6 +195,7 @@ const Form = () => {
                 
                 <div className={style.selectedteams}>
                     <label htmlFor="teams"> Selected Teams </label>
+                    
                     <textarea className={style.selectedteamsbox}
                     type="text"
                     name="teams"
@@ -214,7 +227,7 @@ const Form = () => {
                     <button className={style.btn} type="submit">CREATE</button>
                 </div>
             </form>
-            <Link to ='../Home'><button className={style.homebtn}>Back to Home</button></Link>
+            <Link to ='../'><button className={style.homebtn}>Back to Home</button></Link>
             </div>
     )
 }
