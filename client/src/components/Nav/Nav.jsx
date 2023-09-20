@@ -27,14 +27,9 @@ export default function Nav (){
     useEffect(() => {
         addOptions("teams", teams)
     })
-
-    const onChange = () => {
-        
-    }
-
     return (
         <div className={style.navBar}>
-            <div className={style.accesos}>PAGES
+            <div className={style.accesos}>
                 <Link to ='../Top'><button className={style.btn}>Top Ten</button></Link>
                 <Link to ='../Calendar'><button className={style.btn}>Calendario</button></Link>
                 <Link to ='../Form'><button className={style.formbtn} >Crear Piloto</button></Link>
@@ -51,8 +46,16 @@ export default function Nav (){
                 }} >For Team
                 <option>Filter By Team</option>
                 </select>
-                <button className={style.btn} >From API</button>
-                <button className={style.btn} >From DB</button>
+                <button className={style.btn} onClick={()=>{
+                    const resultado = filteredDrivers.filter(
+                    driver => driver.id < 600)
+                    dispatch(setModDrivers(resultado))}}
+                >From API</button>
+                <button className={style.btn} onClick={()=>{
+                    const resultado = filteredDrivers.filter(
+                    driver => driver.id > 600)
+                    dispatch(setModDrivers(resultado))}}
+                >From DB</button>
             </div>
             <div className={style.order}>SORTERS
             <select className={style.btn} onChange={(event) => {

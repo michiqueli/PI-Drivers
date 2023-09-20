@@ -19,7 +19,7 @@ function App() {
    
 return (
    <Provider store={store}>
-  <div className='App'>
+  <div className="App">
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='*' element={<Error/>}/>
