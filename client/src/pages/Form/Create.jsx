@@ -80,7 +80,7 @@ const Form = () => {
         nationality: form.nationality,
         image: form.image,
         dob: form.dob,
-        teamsId: form.teams,
+        teams: form.teams,
         description: form.description,
       };
       axios.post(`http://localhost:3001/drivers`, driver)

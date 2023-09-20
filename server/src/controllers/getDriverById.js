@@ -1,16 +1,15 @@
 const axios = require("axios")
 const { Driver } = require('../db');
-const { Sequelize } = require('sequelize');
 const getDriverById = async (req, res) => {
-    const id = req.params.idDriver
-    if (id < 600){
-    await axios
-        .get(`http://localhost:5000/drivers/${id}`)
-        .then((response) => {
-            const { id, name, nationality, image, description, dob, teams } =
-                response.data;
-            const driver = {
-                id,
+    const id = req.params.idDriver;
+    let driver;
+
+    if (id < 600) {
+        try {
+            const response = await axios.get(`http://localhost:5000/drivers/${id}`);
+            const { id: apiId, name, nationality, image, description, dob, teams } = response.data;
+            driver = {
+                id: apiId,
                 name: name.forename,
                 lastname: name.surname,
                 nationality,
@@ -19,23 +18,36 @@ const getDriverById = async (req, res) => {
                 dob,
                 teams
             };
-            res.status(200).json(driver)
-        })
-        .catch((err) => {
+        } catch (err) {
             if (err.response && err.response.status === 404) {
                 res.status(404).json({ message: "Not found" });
+                return; // Return early to avoid further execution
             } else {
-                res.status(500).send(err.message);
+                console.error(err); // Log the error for debugging
+                res.status(500).send("Internal server error");
+                return; // Return early to avoid further execution
             }
-        })
-    }else {
-    await Driver.findAll({
-        where: {
-            [Sequelize.Op.or]: [
-                { 'id': { [Sequelize.Op.Like]: id } },
-              ],
-            },
-          });
+        }
+    } else {
+        try {
+            driver = await Driver.findOne({
+                where: {
+                    id: id
+                }
+            });
+
+            if (!driver) {
+                res.status(404).json({ message: "Driver not found in the database" });
+                return; // Return early to avoid further execution
+            }
+        } catch (err) {
+            console.error(err); // Log the error for debugging
+            res.status(500).send("Internal server error");
+            return; // Return early to avoid further execution
+        }
     }
+
+    res.status(200).json(driver);
 };
-module.exports = getDriverById
+
+module.exports = getDriverById;
