@@ -1,7 +1,10 @@
 const axios = require("axios")
-const getDriverById = (req, res) => {
+const { Driver } = require('../db');
+const { Sequelize } = require('sequelize');
+const getDriverById = async (req, res) => {
     const id = req.params.idDriver
-    axios
+    if (id < 600){
+    await axios
         .get(`http://localhost:5000/drivers/${id}`)
         .then((response) => {
             const { id, name, nationality, image, description, dob, teams } =
@@ -24,6 +27,15 @@ const getDriverById = (req, res) => {
             } else {
                 res.status(500).send(err.message);
             }
-        });
+        })
+    }else {
+    await Driver.findAll({
+        where: {
+            [Sequelize.Op.or]: [
+                { 'id': { [Sequelize.Op.Like]: id } },
+              ],
+            },
+          });
+    }
 };
 module.exports = getDriverById

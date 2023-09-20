@@ -10,16 +10,17 @@ import axios from 'axios';
 const Form = () => {
 
     const teams = useSelector(getTeams)
-
-    function addOptions(domElement, array) {
-        var select = document.getElementsByName(domElement)[0];
+    const [lastId, setLastId] = useState(600)
        
-        for (let value in array) {
-            var option = document.createElement("option");
-            option.text = array[value];
-            select.add(option);
-        }
-       }
+    function addOptions(domElement, array) {
+      var select = document.getElementsByName(domElement)[0];
+     
+      for (let value in array) {
+       var option = document.createElement("option");
+       option.text = array[value];
+       select.add(option);
+      }
+     }
     useEffect(() => {
         addOptions("selectedTeam", teams)
     })
@@ -45,12 +46,13 @@ const Form = () => {
     });
 
     const addTeam = () => {
-        if (form.teams.includes(form.selectedTeam)) {
+      const selectedTeam = form.selectedTeam;
+        if (form.teams.includes(selectedTeam)) {
             window.alert("Team already exist")
             return;
           }
         if (form.selectedTeam !== "") {
-          const updatedTeams = form.teams !== "" ? `${form.teams}, ${form.selectedTeam}` : form.selectedTeam;
+          const updatedTeams = form.teams !== "" ? `${form.teams}\n${selectedTeam}` : selectedTeam;
           setForm({
             ...form,
             teams: updatedTeams,
@@ -69,19 +71,30 @@ const Form = () => {
     
     const submitHandler = (event) => {
         event.preventDefault();
-    
-    const driver = {
+        const newId = lastId + 1
+        setLastId(newId);
+        const driver = {
+        id: newId,
         name: form.name,
         lastname: form.lastName,
         nationality: form.nationality,
         image: form.image,
         dob: form.dob,
-        teams: form.teams,
+        teamsId: form.teams,
         description: form.description,
       };
       axios.post(`http://localhost:3001/drivers`, driver)
       .then(response => {window.alert('Drivers Create success', response.data)
-      })
+      setForm({
+        name: "",
+        lastName: "",
+        nationality: "",
+        image: "",
+        dob: "",
+        teams: "",
+        description: "",
+      });
+    })
       .catch((error) => window.alert('Error on Create Driver', error.message))
         
     }
@@ -166,19 +179,24 @@ const Form = () => {
                     onChange={handleChange}
   >                 <option>Select a Team</option>
                     </select>
-                    <button type="button" onClick={addTeam}>
-                    Add Team
-                    </button>
                 </div>
-                <div className={style.name}>
+                
+                <div className={style.selectedteams}>
                     <label htmlFor="teams"> Selected Teams </label>
-                    <input
+                    <textarea className={style.selectedteamsbox}
                     type="text"
                     name="teams"
                     value={form.teams}
                     readOnly={true}
                     />
                 </div>
+                <div></div>
+                <div></div>
+                <div>
+                    <button className={style.addBtn} type="button" onClick={addTeam}>
+                    Add Team
+                    </button>
+                    </div>
                 <div className={style.desc}>
                     <label htmlFor="description"> Description </label>
                     <textarea className= {style.descbox}  maxLength="1000"
@@ -192,7 +210,7 @@ const Form = () => {
                     {errors.description}
                     </span>
                 </div>
-                <div className={style.login}>
+                <div className={style.create}>
                     <button className={style.btn} type="submit">CREATE</button>
                 </div>
             </form>

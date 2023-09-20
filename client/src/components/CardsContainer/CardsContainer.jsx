@@ -23,8 +23,8 @@ export default function CardsContainer() {
       {displayedDrivers.map(driver => (        
         <Card
           key={driver.id}
-          name={driver.name.forename}
-          lastName={driver.name.surname}
+          name={driver.name.forename || driver.name}
+          lastName={driver.name.surname || driver.lastname}
           teams={driver.teams}
           image={driver.image.url}
           id={driver.id}

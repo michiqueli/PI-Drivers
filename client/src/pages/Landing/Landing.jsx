@@ -29,9 +29,10 @@ const Landing = () => {
   }, [dispatch]);
   useEffect(() => {
     axios.get('http://localhost:3001/teams')
-      .then(response => {
-        dispatch(setTeams(response.data));
-      })
+    .then(response => {
+      const teamNames = response.data.map(team => team.name);
+      dispatch(setTeams(teamNames));
+    })
       .catch(error => {
         throw new Error (error)
       });

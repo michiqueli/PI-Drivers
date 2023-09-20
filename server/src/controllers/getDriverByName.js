@@ -8,10 +8,10 @@ const getDriverByName = async (req, res) => {
     
     try{
         const { name } = req.params
-        console.log(name)
-        const response = await axios.get(`http://localhost:5000/drivers?name.forename=${name}`)
         
-        /*const driversDB = Driver.findAll({
+        const response = await axios.get(`http://localhost:5000/drivers?name.forename=${name}`)
+        const dataApi = response
+        const driversDB = Driver.findAll({
             where: {
                 [Sequelize.Op.or]: [
                     { 'name': { [Sequelize.Op.iLike]: `%${name}%` } },
@@ -20,11 +20,11 @@ const getDriverByName = async (req, res) => {
                 },
               });
                  
-              const arrayResponse = [...dataApi, ...driversDB];*/
+              const arrayResponse = [...dataApi, ...driversDB];
               
           
-        if(response.data.length > 0) {
-            res.status(200).json(response.data);
+        if(arrayResponse.length > 0) {
+            res.status(200).json(arrayResponse);
         } else {
             res.status(400).json({error: 'No se encuentra conductor con ese nombre'})
         }

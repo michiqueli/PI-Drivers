@@ -2,7 +2,7 @@
 import SearchBar from "../SearchBar/SearchBar.jsx"
 import style from "./Nav.module.css"
 import { Link } from "react-router-dom"
-import { getDrivers, getModDrivers, setModDrivers} from "../../redux/sliceDrivers.js"
+import { getModDrivers, setModDrivers} from "../../redux/sliceDrivers.js"
 import { getTeams } from "../../redux/sliceTeams.js"
 import { useDispatch, useSelector} from "react-redux"
 import { useEffect } from "react"
@@ -10,7 +10,6 @@ import {sortByNameAsc, sortByNameDes, sortByDobAsc, sortByDobDes} from '../../ut
 
 
 export default function Nav (){
-    const allDrivers = useSelector(getDrivers)
     const teams = useSelector(getTeams)
     const dispatch = useDispatch()
     const orderedDrivers = useSelector(getModDrivers)
@@ -20,9 +19,9 @@ export default function Nav (){
         var select = document.getElementsByName(domElement)[0];
        
         for (let value in array) {
-            var option = document.createElement("option");
-            option.text = array[value];
-            select.add(option);
+         var option = document.createElement("option");
+         option.text = array[value];
+         select.add(option);
         }
        }
     useEffect(() => {
@@ -45,7 +44,7 @@ export default function Nav (){
             </div>
             <div className={style.filters}>FILTERS
                 <select name= "teams" className={style.btn} onChange={(event) => {
-                        const selectedValue = String(event.target.value); 
+                        const selectedValue = String(event.target.value);
                         const resultado = filteredDrivers.filter((driver) => driver.teams && driver.teams.includes(selectedValue))
                         dispatch(setModDrivers(resultado))
 

@@ -5,6 +5,7 @@
     height: 98vh;
     text-align: center;
     flex-direction: column;
+    
 }
 
 .container{
@@ -19,6 +20,9 @@
     border-bottom-right-radius: 20px;
     border-color: black;
     border-style: solid;
+    background-image: url(../../assets/Create.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .name{
     display: flex;
@@ -27,27 +31,28 @@
     align-self: center;
     justify-self: center;
     font-size: large;
-    color:black;
+    color:rgb(255, 0, 0);
     font-family: "Formula1 Display-Regular";
     width: max-content;
     height: max-content;
     padding: 5px;
 }
 .desc{
-    grid-column: 1/4;
+    grid-column: 1/3;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-self: center;
     justify-self: center;
     font-size: large;
-    color:black;
+    color:rgb(255, 0, 0);
     font-family: "Formula1 Display-Regular";
     width: max-content;
     height: max-content;
     padding: 5px;
+    margin: 10px;
 }
-.login{
+.create{
     grid-column: 1/4;
     width: max-content;
     height: max-content;
@@ -69,7 +74,7 @@
 .title{
     color:black;
     font-family: "Formula1 Display-Regular";
-    font-size: xx-large;
+    font-size: x-large;
 }
 .box{
     width: 300px;
@@ -81,14 +86,17 @@
     text-align: center;
 }
 .descbox{
+grid-column: 1/3;
     width: 550px;
-    height: 280px;
+    height: 250px;
     font-family: "Formula1 Display-Regular";
     font-size:large;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: justify;
    resize: none;
+   background-color:rgba(0, 0, 0, 0.511);
+   color: red
 }
 .selectbox{
     width: 300px;
@@ -111,4 +119,40 @@
     font-size: medium;
     margin: 20px;
     align-self: end;
+}
+.addBtn{
+    grid-column: 3/4;
+    width: 300px;
+    height: 40px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    background-color: red;
+    color:black;
+    margin-top: 20px;
+}
+.selectedteams{
+    color: red;
+    grid-row: 4/5;
+    grid-column: 3/4;
+    width: 300px;
+    height: 200px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.selectedteamsbox{
+    width: 300px;
+    height: 200px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

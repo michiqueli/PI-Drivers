@@ -23,16 +23,16 @@ const getTeams =  async (req, res) => {
         
         const teamsArray = Array.from(teamsSet).sort();
     
-        /*for (const teamName of teamsArray) {
+        for (const teamName of teamsArray) {
           const existingTeam = await Teams.findOne({ where: { name: teamName } });
           if (!existingTeam) {
             await Teams.create({ name: teamName });
           }
         }
     
-        const equipos = await Teams.findAll();*/
+        const equipos = await Teams.findAll();
     
-        res.status(200).json(teamsArray);
+        res.status(200).json(equipos);
       } catch (error) {
         console.error(error);
         res.status(500).send(error.message);
