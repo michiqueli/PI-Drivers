@@ -99,17 +99,6 @@ const Form = () => {
         
     }
 
-    const removeTeam = (teamName) => {
-      const updatedTeams = form.teams
-        .split('\n')
-        .filter((team) => team !== teamName)
-        .join('\n');
-      setForm({
-        ...form,
-        teams: updatedTeams,
-      });
-    };
-
     return (
          <div className={style.formulario}>
             <div className={style.title}>TIME</div>
