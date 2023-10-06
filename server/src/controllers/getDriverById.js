@@ -21,11 +21,11 @@ const getDriverById = async (req, res) => {
         } catch (err) {
             if (err.response && err.response.status === 404) {
                 res.status(404).json({ message: "Not found" });
-                return; // Return early to avoid further execution
+                return;
             } else {
-                console.error(err); // Log the error for debugging
+                console.error(err);
                 res.status(500).send("Internal server error");
-                return; // Return early to avoid further execution
+                return;
             }
         }
     } else {
@@ -38,12 +38,12 @@ const getDriverById = async (req, res) => {
 
             if (!driver) {
                 res.status(404).json({ message: "Driver not found in the database" });
-                return; // Return early to avoid further execution
+                return;
             }
         } catch (err) {
-            console.error(err); // Log the error for debugging
+            console.error(err);
             res.status(500).send("Internal server error");
-            return; // Return early to avoid further execution
+            return;
         }
     }
 

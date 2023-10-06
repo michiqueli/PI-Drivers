@@ -13,17 +13,19 @@ export default function SearchBar() {
       let {value} = e.target
       setName(value);
    }
-   const onSearch = () => {
-      axios
+   const onSearch = async () => {
+      await axios
         .get(`http://localhost:3001/drivers/name/${name}`)
         .then((response) => {
-         if(response.data.length > 0){
           dispatch(setModDrivers(response.data));
-        }else{
-         window.alert('¡No hay personajes con este Nombre!');
-        }
-      })
-    }
+          console.log(response.data);
+        })
+        .catch(() => {
+          window.alert('¡No hay personajes con este Nombre!');
+        });
+    };
+    
+    
     const drivers = useSelector(getDrivers);
     
    const clearAll = (() => {

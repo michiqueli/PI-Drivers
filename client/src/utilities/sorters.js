@@ -1,19 +1,19 @@
 
 export const sortByNameAsc = (a, b) => {
-        if (a.name.forename < b.name.forename) {
+        if (a.name.forename  < b.name.forename ) {
           return -1;
         }
-        if (a.name.forename > b.name.forename) {
+        if (a.name.forename  > b.name.forename ) {
           return 1;
         }
         return 0;
       }
 
 export const sortByNameDes = (a, b) => {
-        if (a.name.forename > b.name.forename) {
+        if (a.name.forename  > b.name.forename ) {
             return -1;
         }
-        if (a.name.forename < b.name.forename) {
+        if (a.name.forename  < b.name.forename ) {
             return 1;
         }
           return 0;

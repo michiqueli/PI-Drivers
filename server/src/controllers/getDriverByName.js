@@ -5,15 +5,15 @@ const getDriverByName = async (req, res) => {
     
     try{
         const { name } = req.params
+        const nameForSearch = name.charAt(0).toUpperCase() + name.slice(1);
         
-        const apiResponse = await axios.get(`http://localhost:5000/drivers?name.forename=${name}`);
-        const dataApi = apiResponse.data;
+        const apiResponse = await axios.get(`http://localhost:5000/drivers?name.forename=${nameForSearch}`);
+        const dataApi = apiResponse.data
     
         const driversDB = await Driver.findAll({
             where: {
             [Sequelize.Op.or]: [
-            { 'name': { [Sequelize.Op.iLike]: `%${name}%` } },
-            { 'lastname': { [Sequelize.Op.iLike]: `%${name}%` } },
+            { 'name': { [Sequelize.Op.iLike]: `%${nameForSearch}%` } }
             ],
         },
         });
