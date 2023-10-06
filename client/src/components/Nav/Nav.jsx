@@ -18,15 +18,16 @@ export default function Nav (){
     function addOptions(domElement, array) {
         var select = document.getElementsByName(domElement)[0];
        
-        for (let value in array) {
-         var option = document.createElement("option");
-         option.text = array[value];
-         select.add(option);
-        }
+        array.forEach(object => {
+            var option = document.createElement("option");
+            option.value = object.name;
+            option.text = object.name;
+            select.add(option);
+        })
        }
     useEffect(() => {
         addOptions("teams", teams)
-    })
+    }, [])
     return (
         <div className={style.navBar}>
             <div className={style.accesos}>

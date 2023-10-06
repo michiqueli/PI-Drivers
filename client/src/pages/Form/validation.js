@@ -1,6 +1,6 @@
 const regexname = /[A-Z][a-z]{2,}/
 const regexlastName = /[A-Z][a-z]{2,}/
-const regexdesc = /.{20,}/
+const regexdesc = /.{50,}/
 const regexnatio = /[A-Z][a-z]{3,}/
 const regeximage = /^[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
 

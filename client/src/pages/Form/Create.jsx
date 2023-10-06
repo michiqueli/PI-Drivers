@@ -10,16 +10,17 @@ import axios from 'axios';
 const Form = () => {
 
     const teams = useSelector(getTeams)
-    const [lastId, setLastId] = useState(600)
+    
        
     function addOptions(domElement, array) {
       var select = document.getElementsByName(domElement)[0];
      
-      for (let value in array) {
-       var option = document.createElement("option");
-       option.text = array[value];
-       select.add(option);
-      }
+      array.forEach(object => {
+        var option = document.createElement("option");
+        option.value = object.id;
+        option.text = object.name;
+        select.add(option);
+    })
      }
     useEffect(() => {
         addOptions("selectedTeam", teams)
@@ -32,7 +33,8 @@ const Form = () => {
       image:"",
       dob:"",
       description:"",
-      teams:"",
+      teams: [],
+      selectedteam: "",
     });
 
     const [errors, setErrors] = useState({
@@ -43,46 +45,45 @@ const Form = () => {
       dob:"Empty Date of Birdth",
       description:"Empty Description",
       teams:"Empty Teams",
+      selectedteam: " Empty List",
     });
 
+    const [isFormValid, setIsFormValid] = useState(false);
+
     const addTeam = () => {
-      const selectedTeam = form.selectedTeam;
-        if (form.teams.includes(selectedTeam)) {
-            window.alert("Team already exist")
-            return;
-          }
-        if (form.selectedTeam !== "") {
-          const updatedTeams = form.teams !== "" ? `${form.teams}\n${selectedTeam}` : selectedTeam;
-          setForm({
-            ...form,
-            teams: updatedTeams,
-            selectedTeam: "",
-          });
+      const { selectedTeam, teams } = form;
+        if (selectedTeam && !teams.includes(selectedTeam)) {
+            setForm({ ...form, teams: [...teams, selectedTeam], selectedTeam: "" });
+        }else{
+          window.alert("Team already added")
         }
       };
 
     const handleChange = (event) => {
-        const property = event.target.name
-        const value = event.target.value
-        
-        setErrors(validate({...form, [property]: value}))
-        setForm({...form, [property]: value});
+      const { name, value } = event.target;
+      const newErrors = validate({ ...form, [name]: value });
+      setErrors(newErrors);
+      setForm({ ...form, [name]: value });
+      if (name === "selectedTeam") {
+          setForm({ ...form, selectedTeam: value });
+      }
+      const hasErrors = Object.values(newErrors).some((error) => error !== "");
+      setIsFormValid(!hasErrors);
     }
     
     const submitHandler = (event) => {
-        event.preventDefault();
-        const newId = lastId + 1
-        setLastId(newId);
+      event.preventDefault();
+      //console.log(form.teams) 
         const driver = {
-        id: newId,
         name: form.name,
         lastname: form.lastName,
         nationality: form.nationality,
         image: form.image,
         dob: form.dob,
-        teams: form.teams,
+        teams:form.teams,
         description: form.description,
       };
+      //console.log(driver)
       axios.post(`http://localhost:3001/drivers`, driver)
       .then(response => {window.alert('Drivers Create success', response.data)
       setForm({
@@ -91,8 +92,9 @@ const Form = () => {
         nationality: "",
         image: "",
         dob: "",
-        teams: "",
+        teams: [],
         description: "",
+        selectedteam: "",
       });
     })
       .catch((error) => window.alert('Error on Create Driver', error.message))
@@ -186,7 +188,7 @@ const Form = () => {
                     <textarea className={style.selectedteamsbox}
                     type="text"
                     name="teams"
-                    value={form.teams}
+                    value={form.teams.map((teamId) => teams.find((team) => team.id == teamId).name).join("\n")}
                     readOnly={true}
                     />
                 </div>
@@ -214,7 +216,7 @@ const Form = () => {
                     <button className={style.btn} type="submit">CREATE</button>
                 </div>
             </form>
-            <Link to ='../Home'><button className={style.homebtn}>Back to Home</button></Link>
+            <Link to ='../Home'><button className={style.homebtn} disabled={!isFormValid}>Back to Home</button></Link>
             </div>
     )
 }

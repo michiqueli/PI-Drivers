@@ -3,10 +3,10 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('Driver', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: 600,
+      defaultValue: DataTypes.UUIDV4,
     },
     name: {
       type: DataTypes.STRING,
@@ -29,12 +29,11 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     dob: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
-    },
-    teams: {
-      type: DataTypes.STRING,
-      allowNull: true
     }
-  })
-};
+  },
+    {
+      timestamps: false
+    }
+)};

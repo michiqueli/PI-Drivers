@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Teams } = require("../db");
+const { Team } = require("../db");
 
 
 
@@ -24,13 +24,13 @@ const getTeams =  async (req, res) => {
         const teamsArray = Array.from(teamsSet).sort();
     
         for (const teamName of teamsArray) {
-          const existingTeam = await Teams.findOne({ where: { name: teamName } });
+          const existingTeam = await Team.findOne({ where: { name: teamName } });
           if (!existingTeam) {
-            await Teams.create({ name: teamName });
+            await Team.create({ name: teamName });
           }
         }
     
-        const equipos = await Teams.findAll();
+        const equipos = await Team.findAll();
     
         res.status(200).json(equipos);
       } catch (error) {

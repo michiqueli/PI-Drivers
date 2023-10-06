@@ -1,19 +1,18 @@
 const { Driver } = require('../db');
 const createDriver = async (req, res) => {
 
-    const { body } = req;
-
+    const { name, lastname, description, image, nationality, dob, teams} = req.body;
+console.log(teams)
     try {
         const newDriver = await Driver.create({
-            id:body.id,
-            name: body.name,
-            lastname: body.lastname,
-            description: body.description,
-            image: body.image,
-            nationality: body.nationality,
-            dob: body.dob,
-            teams: body.teams
+            name,
+            lastname,
+            description,
+            image,
+            nationality,
+            dob,
         });
+            newDriver.addTeams(teams)
         
 
         res.status(200).json(newDriver);
