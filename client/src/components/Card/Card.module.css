@@ -1,0 +1,39 @@
+.container {
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 250px;
+    height: 350px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: self-end;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    filter: grayscale(100%);
+}
+
+.container:hover {
+    filter: none;
+    transition: all 1s ease;
+}
+
+.name {
+    font-family: "Formula1 Display-Regular";
+    background-color: black;
+    color: rgb(255, 0, 0);
+    font-size: 25px;
+    width: 250px;
+    margin-bottom: 10px;
+    text-decoration-color: black;
+}
+
+.teams {
+    font-family: "Formula1 Display-Regular";
+    background-color: rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    width: 250px;
+    text-align: center;
+    border-bottom-right-radius: 20px;
+    overflow-wrap:break-word;
+}

@@ -1,0 +1,36 @@
+.container{
+    font-family: "Formula1 Display-Regular";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.in {
+    background-color: black;
+    color: red;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: "Formula1 Display-Regular";
+}
+.btn{
+    background-color: black;
+    color: red;
+    font-family: "Formula1 Display-Regular";
+    height: 30px;
+    width: 120px;
+    font-size: medium;
+    margin: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.btn2{
+
+        background-color: red;
+        color:black;
+        font-family: "Formula1 Display-Regular";
+        height: 60px;
+        width: 300px;
+        font-size: large;
+        margin: 20px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }

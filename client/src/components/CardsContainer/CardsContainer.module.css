@@ -1,0 +1,33 @@
+.container{
+    border-color: black;
+    border-style: solid;
+    display: grid;
+    background-repeat:no-repeat;
+    margin: 10px;
+    gap: 20px;
+    padding: 15px;
+    justify-items: center;
+    max-height: 95vh;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-image: url(../../assets/f1-formula1.gif);
+    background-size: contain;
+    background-repeat: round;
+    
+}
+.pagination{
+    grid-column: 1/6;
+    grid-row: 3/4;
+    height: 50px;
+    align-items: center;
+    font-family: "Formula1 Display-Regular";
+    margin-top: 30px;
+    color: red;
+}
+.pagination button{
+    font-family: "Formula1 Display-Regular";
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: large;
+    background-color: red;
+}

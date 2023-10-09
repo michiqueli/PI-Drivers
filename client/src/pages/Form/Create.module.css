@@ -1,0 +1,166 @@
+.formulario{
+    display: flex;
+    justify-content: center;
+    width: 98%;
+    height: 98vh;
+    text-align: center;
+    flex-direction: column;
+    
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 33% 33% auto;
+    margin-top: 40px;
+    width: 1200px;
+    height: 700px;
+    justify-self: center;
+    align-self: center;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-color: black;
+    border-style: solid;
+    background-image: url(../../assets/Create.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-size: large;
+    color:rgb(255, 0, 0);
+    font-family: "Formula1 Display-Regular";
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.747);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.desc{
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-size: large;
+    color:rgb(255, 0, 0);
+    font-family: "Formula1 Display-Regular";
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.904);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.create{
+    grid-column: 1/4;
+    width: max-content;
+    height: max-content;
+    align-self: center;
+    justify-self: center;
+}
+.btn{
+    
+    background-color: red;
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    height: 60px;
+    width: 300px;
+    font-size: large;
+    margin: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.title{
+    color:black;
+    font-family: "Formula1 Display-Regular";
+    font-size: x-large;
+}
+.box{
+    width: 300px;
+    height: 40px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+.descbox{
+grid-column: 1/3;
+    width: 550px;
+    height: 250px;
+    font-family: "Formula1 Display-Regular";
+    font-size:large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: justify;
+   resize: none;
+   background-color:rgba(0, 0, 0, 0.511);
+   color: red
+}
+.selectbox{
+    width: 300px;
+    height: 40px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+.homebtn{
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: red;
+    color: black;
+    font-family: "Formula1 Display-Regular";
+    height: 60px;
+    width: 120px;
+    font-size: medium;
+    margin: 20px;
+    align-self: end;
+}
+.addBtn{
+    grid-column: 3/4;
+    width: 300px;
+    height: 40px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    background-color: red;
+    color:black;
+    margin-top: 20px;
+}
+.selectedteams{
+    color: red;
+    grid-row: 4/5;
+    grid-column: 3/4;
+    width: 300px;
+    height: 200px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    margin-left: 55px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.836);
+}
+.selectedteamsbox{
+    width: 294px;
+    height: 250px;
+    font-family: "Formula1 Display-Regular";
+    font-size: large;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    resize: none;
+}
