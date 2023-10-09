@@ -2,7 +2,7 @@ const regexname = /[A-Z][a-z]{2,}/
 const regexlastName = /[A-Z][a-z]{2,}/
 const regexdesc = /.{50,}/
 const regexnatio = /[A-Z][a-z]{3,}/
-const regeximage = /^[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
+const regeximage = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/
 
 const validate = (form) =>{
 

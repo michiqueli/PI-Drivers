@@ -8,7 +8,6 @@ const getDriverByName = async (req, res) => {
         const nameForSearch = name.charAt(0).toUpperCase() + name.slice(1);
         const response = await axios.get(`http://localhost:5000/drivers?name.forename=${nameForSearch}`);
         
-        console.log(response)
         const driversApi = response.data.map((driver) => {
             const {
                 id,
@@ -35,15 +34,38 @@ const getDriverByName = async (req, res) => {
             where: {
             [Sequelize.Op.or]: [
             { 'name': { [Sequelize.Op.iLike]: `%${nameForSearch}%` } }
-            ],},
+            ]},
             include: {
                 model: Team,
-                attributes: ["name"],
-                through: {
-                  attributes:[],
-                }
+                attributes: ['name'],
               }
-        });
+              
+        })
+        
+        console.log(driversDB)
+        /*const formatedDriversDB = driversDB.map((driver) => {
+            const {
+                id,
+                name,
+                lastname,
+                nationality,
+                image,
+                description,
+                dob,
+                teams
+            } = driver;
+            return {
+            id: id,
+            name: name,
+            lastname: lastname,
+            nationality: nationality,
+            image: image,
+            description: description,
+            dob: dob,
+            teams: teams.map((team) => team.name).join(", ")
+            }
+        })*/
+          
         const arrayResponse = [...driversApi, ...driversDB]
               
         if(arrayResponse.length > 0) {

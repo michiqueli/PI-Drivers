@@ -2,7 +2,7 @@ import style from "./Details.module.css"
 import axios from "axios"
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import imageDefault from "../../assets/weLostImg.jpg"
+import { CheckImageUrl } from "../../utilities/checkImgUrl"
 
 
 export default function Details(){
@@ -19,6 +19,8 @@ export default function Details(){
     });
     return setDriver({});
     }, [id]);
+    
+   const imageUrl = CheckImageUrl(driver.image)
 
    return(
          <div>{
@@ -26,7 +28,7 @@ export default function Details(){
             <div className = {style.container}>
                <div className={style.title}>{driver.name} {driver.lastname}</div>
                
-               <div className={style.imagen} style={{ backgroundImage: `url(${driver.image || imageDefault})`}
+               <div className={style.imagen} style={{ backgroundImage: `url(${imageUrl})`}
                }> <Link to ='../Home'><button className={style.btn}>BACK HOME</button></Link>
                </div>
                <div className={style.subtitle}>Nacionality:</div>

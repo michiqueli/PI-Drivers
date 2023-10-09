@@ -21,9 +21,6 @@ const getDrivers = async (req, res) => {
       include: {
         model: Team,
         attributes: ["name"],
-        through: {
-          attributes:[],
-        }
       }
     });
 

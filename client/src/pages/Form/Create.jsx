@@ -210,7 +210,7 @@ const Form = () => {
                     <textarea className= {style.descbox}  maxLength="1000"
                     type="text"
                     name="description"
-                    placeholder="Insert a Description min 20 Characters, max 1000 Characters"
+                    placeholder="Insert a Description min 30 Characters, max 1000 Characters"
                     value={form.description}
                     onChange={handleChange}
                     />
