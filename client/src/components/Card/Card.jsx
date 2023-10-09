@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import imageDeafult from "../../assets/weLostImg.jpg"
 
 export default function Card({name, lastName, image, id, teams}) {
-   //const teamArreglo = teams.split(",").join(", ")
    
    return (
       <Link to = {`/details/${id}`}>

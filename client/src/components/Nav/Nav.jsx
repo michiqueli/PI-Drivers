@@ -49,12 +49,12 @@ export default function Nav (){
                 </select>
                 <button className={style.btn} onClick={()=>{
                     const resultado = filteredDrivers.filter(
-                    driver => driver.id < 600)
+                    driver => !isNaN(driver.id))
                     dispatch(setModDrivers(resultado))}}
                 >From API</button>
                 <button className={style.btn} onClick={()=>{
                     const resultado = filteredDrivers.filter(
-                    driver => driver.id > 600)
+                    driver => isNaN(driver.id))
                     dispatch(setModDrivers(resultado))}}
                 >From DB</button>
             </div>

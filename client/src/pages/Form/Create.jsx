@@ -59,6 +59,12 @@ const Form = () => {
         }
       };
 
+      const removeTeam = (index) => {
+        const updatedTeams = [...form.teams];
+        updatedTeams.splice(index, 1);
+        setForm({ ...form, teams: updatedTeams });
+    };
+
     const handleChange = (event) => {
       const { name, value } = event.target;
       const newErrors = validate({ ...form, [name]: value });
@@ -73,7 +79,6 @@ const Form = () => {
     
     const submitHandler = (event) => {
       event.preventDefault();
-      //console.log(form.teams) 
         const driver = {
         name: form.name,
         lastname: form.lastName,
@@ -83,7 +88,6 @@ const Form = () => {
         teams:form.teams,
         description: form.description,
       };
-      //console.log(driver)
       axios.post(`http://localhost:3001/drivers`, driver)
       .then(response => {window.alert('Drivers Create success', response.data)
       setForm({
