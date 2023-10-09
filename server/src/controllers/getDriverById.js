@@ -26,17 +26,8 @@ const getDriverById = async (req, res) => {
                     include: {
                         model: Team,
                         attributes: ["name"],
-<<<<<<< HEAD
-                        through: {
-                            attributes: [],
-                        }
                     }
                 });
-    
-=======
-                    }
-                });
->>>>>>> 334e2a857aa6a1908e0153bab766c50da46d4624
                 const formatedDriversDB = {
                     id: dbDrivers.id,
                     name: dbDrivers.name,
@@ -47,11 +38,7 @@ const getDriverById = async (req, res) => {
                     dob: dbDrivers.dob,
                     teams: dbDrivers.Teams.map((team) => team.name).join(", ")
                 };
-<<<<<<< HEAD
-    
-=======
-                //console.log(dbDrivers.teams)
->>>>>>> 334e2a857aa6a1908e0153bab766c50da46d4624
+                console.log(dbDrivers[0].teams.dataValues)
                 driver = formatedDriversDB;
             }
             
