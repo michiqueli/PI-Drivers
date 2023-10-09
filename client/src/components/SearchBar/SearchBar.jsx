@@ -21,7 +21,11 @@ export default function SearchBar() {
           console.log(response.data);
         })
         .catch(() => {
+<<<<<<< HEAD
           window.alert('¡No hay personajes con este Nombre!');
+=======
+          window.alert("No drivers with that Name");
+>>>>>>> 334e2a857aa6a1908e0153bab766c50da46d4624
         });
     };
     
