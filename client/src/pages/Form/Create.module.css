@@ -36,12 +36,9 @@
     width: max-content;
     height: max-content;
     padding: 5px;
-<<<<<<< HEAD
-=======
     background-color: rgba(0, 0, 0, 0.747);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
->>>>>>> 334e2a857aa6a1908e0153bab766c50da46d4624
 }
 .desc{
     grid-column: 1/3;
@@ -57,12 +54,9 @@
     height: max-content;
     padding: 5px;
     margin: 10px;
-<<<<<<< HEAD
-=======
     background-color: rgba(0, 0, 0, 0.904);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
->>>>>>> 334e2a857aa6a1908e0153bab766c50da46d4624
 }
 .create{
     grid-column: 1/4;
@@ -156,20 +150,12 @@ grid-column: 1/3;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: center;
-<<<<<<< HEAD
-    margin-left: 30px;
-    margin-top: 20px;
-}
-.selectedteamsbox{
-    width: 300px;
-=======
     margin-left: 55px;
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.836);
 }
 .selectedteamsbox{
     width: 294px;
->>>>>>> 334e2a857aa6a1908e0153bab766c50da46d4624
     height: 250px;
     font-family: "Formula1 Display-Regular";
     font-size: large;

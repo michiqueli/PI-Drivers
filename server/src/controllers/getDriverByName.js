@@ -26,7 +26,7 @@ const getDriverByName = async (req, res) => {
                 description,
                 nationality,
                 dob,
-                teams
+                teams: teams.split(",").join(", ")
             }
         })
     
@@ -41,33 +41,21 @@ const getDriverByName = async (req, res) => {
               }
               
         })
-        
-        console.log(driversDB)
-        /*const formatedDriversDB = driversDB.map((driver) => {
-            const {
-                id,
-                name,
-                lastname,
-                nationality,
-                image,
-                description,
-                dob,
-                teams
-            } = driver;
+        const formatedDriversDB = driversDB.map((driver) => {
             return {
-            id: id,
-            name: name,
-            lastname: lastname,
-            nationality: nationality,
-            image: image,
-            description: description,
-            dob: dob,
-            teams: teams.map((team) => team.name).join(", ")
+            id: driver.id,
+            name: driver.name,
+            lastname: driver.lastname,
+            nationality: driver.nationality,
+            image: driver.image,
+            description: driver.description,
+            dob: driver.dob,
+            teams: driver.Teams.map((team) => team.name).flat().join(", ")
             }
-        })*/
-          
-        const arrayResponse = [...driversApi, ...driversDB]
-              
+        })
+        console.log(formatedDriversDB)
+        const arrayResponse = [...driversApi, ...formatedDriversDB]
+        console.log(arrayResponse)      
         if(arrayResponse.length > 0) {
             res.status(200).json(arrayResponse);
         } else {

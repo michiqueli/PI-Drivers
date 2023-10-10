@@ -17,7 +17,7 @@ const getDriverById = async (req, res) => {
                 image : image.url,
                 description,
                 dob,
-                teams
+                teams: teams.split(",").join(", ")
             }}else{
                 const dbDrivers = await Driver.findOne({
                     where: {
@@ -36,9 +36,8 @@ const getDriverById = async (req, res) => {
                     image: dbDrivers.image,
                     description: dbDrivers.description,
                     dob: dbDrivers.dob,
-                    teams: dbDrivers.Teams.map((team) => team.name).join(", ")
+                    teams: dbDrivers.Teams.map((team) => team.name).flat().join(", ")
                 };
-                console.log(dbDrivers[0].teams.dataValues)
                 driver = formatedDriversDB;
             }
             

@@ -21,7 +21,7 @@ export default function SearchBar() {
           console.log(response.data);
         })
         .catch(() => {
-          window.alert('¡No hay personajes con este Nombre!');
+          window.alert('¡No drivers found with that name!');
         });
     };
     
