@@ -10,7 +10,7 @@ const Landing = () => {
   
   const dispatch = useDispatch()
   useEffect(() => {
-    axios.get('https://pi-drivers-98uo.vercel.app/drivers')
+    axios.get('https://pi-drivers-zk1w-michiquelis-projects.vercel.app/drivers')
       .then(response => {
         dispatch(setDrivers(response.data));
       })
@@ -19,7 +19,7 @@ const Landing = () => {
       });
   }, [dispatch]);
   useEffect(() => {
-    axios.get('https://pi-drivers-98uo.vercel.app/drivers')
+    axios.get('https://pi-drivers-zk1w-michiquelis-projects.vercel.app/drivers')
       .then(response => {
         dispatch(setModDrivers(response.data));
       })
@@ -28,7 +28,7 @@ const Landing = () => {
       });
   }, [dispatch]);
   useEffect(() => {
-    axios.get('https://pi-drivers-98uo.vercel.app/teams')
+    axios.get('https://pi-drivers-zk1w-michiquelis-projects.vercel.app/teams')
     .then(response => {
       const teams = response.data;
       dispatch(setTeams(teams));
